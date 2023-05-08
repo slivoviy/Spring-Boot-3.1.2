@@ -1,11 +1,9 @@
-package com.sl17.springboot312.dao;
+package com.sl17.springboot312.repository;
 
 
 
 import com.sl17.springboot312.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 }
