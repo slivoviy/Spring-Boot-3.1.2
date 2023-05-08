@@ -1,4 +1,4 @@
-package com.sl17.springboot312.config;
+package com.sl17.springboot312;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication
 @EnableJpaRepositories
 @EnableWebMvc
-@ComponentScan(basePackages = "com.sl17.springboot312")
 @EntityScan(basePackages="com.sl17.springboot312.model")
 public class Application {
 

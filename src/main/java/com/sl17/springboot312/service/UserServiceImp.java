@@ -1,6 +1,6 @@
 package com.sl17.springboot312.service;
 
-import com.sl17.springboot312.dao.UserDao;
+import com.sl17.springboot312.dao.UserRepository;
 import com.sl17.springboot312.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,30 +12,30 @@ import java.util.List;
 public class UserServiceImp implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
-    @Transactional
+//    @Transactional
     @Override
     public void addUser(User user) {
-        userDao.addUser(user);
+        userRepository.saveAndFlush(user);
     }
 
-    @Transactional(readOnly = true)
+//    @Transactional(readOnly = true)
     @Override
     public List<User> getUsers() {
-        return userDao.getUsers();
+        return userRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+//    @Transactional(readOnly = true)
     @Override
     public User getUserById(long id) {
-        return userDao.getUserById(id);
+        return userRepository.findById(id).orElse(null);
     }
 
-    @Transactional
+//    @Transactional
     @Override
     public void removeUser(long id) {
-        userDao.removeUser(id);
+        userRepository.deleteById(id);
     }
 
 }
